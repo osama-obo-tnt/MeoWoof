@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import markdown 
 
 # API endpoints
 CHAT_API_URL = 'https://osamaobo.pythonanywhere.com/chat'
@@ -26,12 +27,8 @@ if option == "Chat":
                     "query": query
                 })
             if response.status_code == 200:
-                 st.markdown("""
-                <div style="background-color: black; padding: 10px; border-radius: 5px;">
-                    <strong>Response from AI:</strong>
-                    <p>{}</p>
-                </div>
-                """.format(response.text), unsafe_allow_html=True)
+                html_content = response.text
+                st.markdown(markdown.markdown(html_content), unsafe_allow_html=True)
             else:
                 st.write("Error:", response.status_code)
         else:
@@ -54,12 +51,8 @@ elif option == "Predict Date":
                     "type": animal_type
                 })
             if response.status_code == 200:
-                st.markdown("""
-                <div style="background-color: black; padding: 10px; border-radius: 5px;">
-                    <strong>Response :</strong>
-                    <p>{}</p>
-                </div>
-                """.format(response.text), unsafe_allow_html=True)
+                html_content = response.text
+                st.markdown(markdown.markdown(html_content), unsafe_allow_html=True)  
             else:
                 st.write("Error:", response.status_code)
         else:
@@ -80,12 +73,8 @@ elif option == "Suggest Names":
                     "query": query
                 })
             if response.status_code == 200:
-                st.markdown("""
-                <div style="background-color: black; padding: 10px; border-radius: 5px;">
-                    <strong>Response from AI:</strong>
-                    <p>{}</p>
-                </div>
-                """.format(response.text), unsafe_allow_html=True)
+                html_content = response.text
+                st.markdown(markdown.markdown(html_content), unsafe_allow_html=True)  
             else:
                 st.write("Error:", response.status_code)
         else:
