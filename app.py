@@ -27,7 +27,7 @@ if option == "Chat":
                 })
             if response.status_code == 200:
                  st.write("Response from AI:")
-                 st.code(response.text)
+                 st.write(response.text)
             else:
                 st.write("Error:", response.status_code)
         else:
