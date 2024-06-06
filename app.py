@@ -6,7 +6,7 @@ CHAT_API_URL = 'https://osamaobo.pythonanywhere.com/chat'
 DATE_API_URL = 'https://osamaobo.pythonanywhere.com/date'
 NAME_API_URL = 'https://osamaobo.pythonanywhere.com/name'
 
-st.title("MeoWoof Pet System")
+st.title("Mewoff Pet System")
 
 # Sidebar for navigation
 option = st.sidebar.selectbox("Choose an action", ("Chat", "Predict Date", "Suggest Names"))
@@ -37,7 +37,7 @@ elif option == "Predict Date":
     st.sidebar.header("Predict Delivery Date")
     user_id = st.sidebar.text_input("User ID")
     conv_id = st.sidebar.text_input("Conversation ID")
-    date = st.sidebar.text_input("Enter mating date (YYYY-MM-DD)")
+    date = st.sidebar.text_input("Enter mating date (YYYY-MM-DD / DD-MM-YYYY / DD month)")
     animal_type = st.sidebar.selectbox("Select Animal Type", ("Cat", "Dog"))
 
     if st.sidebar.button("Submit"):
