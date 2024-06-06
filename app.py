@@ -26,12 +26,8 @@ if option == "Chat":
                     "query": query
                 })
             if response.status_code == 200:
-                st.markdown("""
-                <div style="background-color: #f1f1f1; padding: 10px; border-radius: 5px;">
-                    <strong>Response from AI:</strong>
-                    <p>{}</p>
-                </div>
-                """.format(response.text), unsafe_allow_html=True)
+                 st.write("Response from AI:")
+                 st.code(response.text)
             else:
                 st.write("Error:", response.status_code)
         else:
