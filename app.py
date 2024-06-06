@@ -38,7 +38,7 @@ elif option == "Predict Date":
     st.sidebar.header("Predict Delivery Date")
     user_id = st.sidebar.text_input("User ID")
     conv_id = st.sidebar.text_input("Conversation ID")
-    date = st.sidebar.text_input("Enter mating date (YYYY-MM-DD / DD-MM-YYYY / DD month)")
+    date = st.sidebar.text_input("Enter mating date (e.g: 23 april)")
     animal_type = st.sidebar.selectbox("Select Animal Type", ("Cat", "Dog"))
 
     if st.sidebar.button("Submit"):
