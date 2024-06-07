@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import markdown 
+from datetime import datetime
 
 # API endpoints
 CHAT_API_URL = 'https://osamaobo.pythonanywhere.com/chat'
@@ -38,16 +39,29 @@ elif option == "Predict Date":
     st.sidebar.header("Predict Delivery Date")
     user_id = st.sidebar.text_input("User ID")
     conv_id = st.sidebar.text_input("Conversation ID")
-    date = st.sidebar.text_input("Enter mating date (e.g: 23 april)")
+
+    # Day picker
+    day = st.sidebar.selectbox("Select Day", list(range(1, 32)))
+
+    # Month picker
+    months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ]
+    month = st.sidebar.selectbox("Select Month", months)
+
+    # Combine day and month into a string
+    mating_date = f"{day} {month}"
+
     animal_type = st.sidebar.selectbox("Select Animal Type", ("Cat", "Dog"))
 
     if st.sidebar.button("Submit"):
-        if user_id and conv_id and date and animal_type:
+        if user_id and conv_id and mating_date and animal_type:
             with st.spinner("Processing..."):
                 response = requests.post(DATE_API_URL, json={
                     "user_id": user_id,
                     "conv_id": conv_id,
-                    "query": date,
+                    "query": str(mating_date),
                     "type": animal_type
                 })
             if response.status_code == 200:
