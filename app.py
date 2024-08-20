@@ -4,9 +4,9 @@ import markdown
 from datetime import datetime
 
 # API endpoints
-CHAT_API_URL = 'https://osamaobo.pythonanywhere.com/chat'
-DATE_API_URL = 'https://osamaobo.pythonanywhere.com/date'
-NAME_API_URL = 'https://osamaobo.pythonanywhere.com/name'
+CHAT_API_URL = 'https://alrightosama.pythonanywhere.com/chat'
+DATE_API_URL = 'https://alrightosama.pythonanywhere.com/date'
+NAME_API_URL = 'https://alrightosama.pythonanywhere.com/name'
 
 st.title("Mewoff Pet System")
 
